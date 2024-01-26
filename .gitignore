@@ -128,10 +128,6 @@ __MACOSX/
 *.sass.map
 *.scss.map
 
-##### bootstrap
-Front/assets/bootstrap/bootstrap.min.css
-Front/assets/js/bootstrap.bundle.min.js
-Front/assets/js/bootstrap.bundle.min.js.map
 
 ##### Backup
 *.bak
