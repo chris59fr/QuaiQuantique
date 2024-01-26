@@ -1,0 +1,237 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+
+
+.slogan {
+
+    position: relative;
+    right: 28%;
+    font-family: 40px;
+    color: #fafeff;
+}
+
+
+.navbar {
+    background: #3b4b54;
+}
+
+
+.navbar button {
+    background-color: #e7b846;
+}
+
+
+h1 {
+    font-family: Luxurious script;
+    font-size:4em;
+    margin-top: 10%;
+
+}
+
+
+h2 {
+    font-family: Luxurious script;
+    font-size: 3em;
+    padding-top:  5%;
+
+}
+
+
+
+p {
+    font-family: 'Jost', sans-serif;
+    margin-top: 2%;
+    font-weight: 400;
+}
+
+
+
+body {
+    text-align: center;
+    font-size: x-large;
+    font-weight: 2rem;
+    height: 100px;
+    width: 100%;
+
+    
+}
+
+
+.navbar {
+    position: sticky;
+    padding: 1%;
+    
+}
+
+
+.trait {
+    border: #e7b846 solid 1px;
+    
+}
+
+
+.img-fluid {
+    height: 350px;
+}
+
+
+
+.terrase {
+    display: flex;
+    position: relative;
+    right: 10%;
+
+}
+
+
+
+.paragraphe p {
+    margin-top: 5%;
+}
+
+
+
+.interieur img {
+    display: flex;
+    position: relative;
+    left: 23%;
+
+
+}
+
+
+
+p {
+    font-size: 1,5rem;
+    text-align: left;
+
+}
+
+
+.horaire {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+
+.ouverture h2 {
+    color: #e7b846;
+    text-decoration:underline;
+    margin-top: 4%;
+    font-size: 3em;
+    font-weight: 100;
+
+}
+
+
+.ouverture {
+    background-color: #3b4b54;
+    text-align: center;
+    
+}
+
+
+
+.ouverture p {
+    color:#fafeff;
+    font-family: Jost;
+    font-weight: 1rem;
+    margin-top: 3%;
+
+}
+
+
+.adress p {
+    text-align: center;
+    font-size: 1rem;
+    font: 1em sans-serif;
+    padding-top: 5%;
+    font-weight: 300;
+}
+
+
+.adress h4 {
+    color: #fafeff;
+    font-family: Jost;
+    font: 1em sans-serif;
+    font-weight: 500;
+    
+
+}
+
+
+.heure p {
+    font-weight: 100;
+}
+
+
+button {
+    background-color: #e7b846;
+    font-size: 30px;
+    margin-top: 4%;
+    cursor: pointer;
+    color: #fafeff;
+    font-family: Jost;
+}
+
+
+
+.trais {
+    color:   #e7b846 ;
+}
+
+
+
+
+.signature {
+    margin-top: 10%;
+}
+
+
+.signature p {
+    font-family: Luxurious script;
+    text-align: center;
+    bottom: 30px;
+    left: 85px;
+    position:relative
+    
+}
+
+
+.signature h3{
+    font-family: Jost ;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    position: relative;
+    bottom: px;
+    font-size: 50px;
+    color: #e7b846;
+    text-decoration: underline;
+
+    
+}
+
+
+.copyrigth p {
+    font-size: small;
+    text-align: center;
+    
+}
+
+
+
+.signature img {
+    height: 120px;
+
+}
+
+
+
+span {
+    color: #fafeff;
+}
+
