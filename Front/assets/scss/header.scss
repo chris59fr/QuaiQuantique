@@ -1,0 +1,18 @@
+@use "styles.scss" as styles;
+
+.header {
+    font-family: styles.$font-luxurious-script;
+    font-size: 55px;
+    color : styles.$color-third;
+    background-color: styles.$color-primary;
+}
+
+.button {
+    background-color: none;
+    border-color: none;
+    color : styles.$color-secondary;
+}
+
+.menu {
+    background-color : styles.$color-primary-light-70
+}
