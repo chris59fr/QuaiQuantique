@@ -27,7 +27,8 @@
 }
 
 // Mixin pour les lignes
-@mixin line ($height : 3px, $background-color: #e7b846, $border-radius: 0px 50px 50px 0px) {
+@mixin line ($position: absolute,$height : 2px, $background-color: #e7b846, $border-radius: 0px 50px 50px 0px) {
+  position: $position;
   height: $height;
   background-color: $background-color;
   border-radius: $border-radius;

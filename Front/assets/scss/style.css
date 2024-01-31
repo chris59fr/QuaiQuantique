@@ -29,8 +29,11 @@ a:hover {
     align-items: flex-start;
     padding: 10px;
   }
-  header .line-container {
+  header .line-containerUp, header .line-containerDown {
     visibility: hidden;
+  }
+  header .navbar-collapse {
+    padding-left: 50px;
   }
 }
 @media screen and (min-width: 576px) and (max-width: 768px) {
@@ -41,8 +44,11 @@ a:hover {
     align-items: flex-start;
     padding: 10px;
   }
-  header .line-container {
+  header .line-containerUp, header .line-containerDown {
     visibility: hidden;
+  }
+  header .navbar-collapse {
+    padding-left: 50px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -53,8 +59,11 @@ a:hover {
     align-items: flex-start;
     padding: 10px;
   }
-  header .line-container {
+  header .line-containerUp, header .line-containerDown {
     visibility: hidden;
+  }
+  header .navbar-collapse {
+    padding-left: 50px;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1200px) {
@@ -137,42 +146,48 @@ nav a:hover, nav a:focus {
 
 .lineMenu {
   width: 82px;
-  height: 3px;
+  position: absolute;
+  height: 2px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
 }
 
 .lineMenu2 {
   width: 130px;
-  height: 3px;
+  position: absolute;
+  height: 2px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
 }
 
 .lineMenu3 {
-  width: 130px;
-  height: 3px;
+  width: 110px;
+  position: absolute;
+  height: 2px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
 }
 
 .lineMenu4 {
-  width: 130px;
-  height: 3px;
+  width: 40px;
+  position: absolute;
+  height: 2px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
 }
 
 .lineMenu5 {
-  width: 130px;
-  height: 3px;
+  width: 160px;
+  position: absolute;
+  height: 2px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
 }
 
 .lineMenu6 {
-  width: 130px;
-  height: 3px;
+  width: 120px;
+  position: absolute;
+  height: 2px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
 }
