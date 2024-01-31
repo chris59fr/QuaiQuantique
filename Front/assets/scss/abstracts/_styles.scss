@@ -24,26 +24,22 @@ $body-color: rgba(59, 75, 84, 0.3);
 $font-jost: 'Jost', sans-serif;
 $font-luxurious-script: 'Luxurious Script', cursive;
 
-// Variables pour les marges et les espacements :
+// Typo Responsive
+$font-size-small: 0.875rem; // Correspond à 14px pour une taille de police de base de 16px (1rem)
+$font-size-medium: 1rem;    // Correspond à 16px pour une taille de police de base de 16px (1rem)
+$font-size-large: 1.25rem;  // Correspond à 20px pour une taille de police de base de 16px (1rem)
+$font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de base de 16px (1rem)
 
+// Variables pour les marges et les espacements :
 $spacing-small: 8px;
 $spacing-medium: 16px;
 $spacing-large: 24px;
 $spacing-xlarge: 32px;
 
 
-// Typo Responsive
-
-$font-size-small: 0.875rem; // Correspond à 14px pour une taille de police de base de 16px (1rem)
-$font-size-medium: 1rem;    // Correspond à 16px pour une taille de police de base de 16px (1rem)
-$font-size-large: 1.25rem;  // Correspond à 20px pour une taille de police de base de 16px (1rem)
-$font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de base de 16px (1rem)
-
-
 // Classe Réutilisable
 
 // MENU
-
 .menu {
     font-family: $font-jost;
 }
@@ -116,43 +112,7 @@ $font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de b
     font-size: 15px;
 }
 
-// FOOTER
 
-.footer-time {
-    font-family: $font-jost;
-    &-weekdays {
-        font-weight: normal;
-        font-size: 15px;
-    }
-}
-&-hours {
-    font-family: $font-jost;
-    font-weight: 300;
-    font-size: 14px;
-} 
-
-.footer-adress {
-    font-family: $font-jost;
-    font-weight: 500;
-    font-size: 25px;
-}
-
-.footer-contact {
-    font-family: $font-jost;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.footer-greeting {
-    font-family: $font-luxurious-script;
-    font-size: 15px;
-}
-
-.footer-legal {
-    font-family: $font-jost;
-    font-weight: 300;
-    font-size: 9px;
-}
 
 // CARTE
 
@@ -259,8 +219,42 @@ $font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de b
     font-size: 10px;
 }
 
+// FOOTER
+.footer-time {
+    font-family: $font-jost;
+    &-weekdays {
+        font-weight: normal;
+        font-size: 15px;
+    }
+}
+    &-hours {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 14px;
+} 
 
-// POUR UTILISER LES @MIXIN, IL FAUT METTRE DANS VOTRE CLASSE @include (exemple: @include color(background-colour, $color-primary);
+.footer-adress {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.footer-contact {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-greeting {
+    font-family: $font-luxurious-script;
+    font-size: 15px;
+}
+
+.footer-legal {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 9px;
+}
 
 // Mixin pour les Polices :
 
@@ -270,30 +264,24 @@ $font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de b
     font-size: $size;
 }
 
-// Mixin pour les couleurs :
+  // Mixin pour les couleurs :
 
 @mixin color ($property, $color) {
     #{$property}: $color;
 }
 
-// Mixin pour les ombres :
+  // Mixin pour les ombres :
 
 @mixin box-shadow ($x, $y, $blur, $color) {
     box-shadow: $x $y $blur $color;
 }
 
-// Mixin pour les transitions :
+  // Mixin pour les transitions :
 
 @mixin transition ($property, $duration) {
     transition: $property $duration;
 }
 
-// GESTION DES POINTS DE RUPTURE (MEDIA QUERIES)
-
-$breakpoint-small: 576px;
-$breakpoint-medium: 768px;
-$breakpoint-large: 992px;
-$breakpoint-xlarge: 1200px;
 
 
 
