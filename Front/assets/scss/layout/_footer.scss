@@ -31,7 +31,6 @@ footer {
     align-items: center;
   }
 }
-
 .footer-time {
   font-family: $font-jost;
   &-weekdays {
@@ -42,7 +41,6 @@ footer {
     @include font ($font-jost, 300, $font-size-small)
   }
 } 
-
 .footer-adress {
   @include font ($font-jost, 500, $font-size-small);
   @extend %flex-center-column;
@@ -54,7 +52,6 @@ footer {
     background-color: $color-secondary;
   }
 }
-
 .nosAdress h4 {
   @include font ($font-jost, 200, $font-size-xlarge);
   @extend %flex-center-column;
@@ -62,17 +59,14 @@ footer {
 .nosAdress p {
   @extend %flex-center-column;
 }
-
 .footer-contact {
   @include font ($font-jost, 500, $font-size-small);
   background-color: $color-secondary;
   color: $color-third;
 }
-
 .footer-greeting {
   @include font ($font-luxurious-script, 300, $font-size-small);
 }
-
 .line-legal {
   position: relative;
   width: 317px;
@@ -80,15 +74,12 @@ footer {
   background-color: $color-secondary;
   margin-bottom: 10px
 }
-
 .signature h5 {
   font-family: $font-luxurious-script;
 }
 .signature {
   margin: $spacing-xlarge;
 }
-
-
 .footer-legal {
   @include font ($font-jost, 300, 9px);
   @extend %flex-center-column;
