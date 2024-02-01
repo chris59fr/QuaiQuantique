@@ -1,3 +1,5 @@
+@import '../abstracts/_variables';
+@import '../abstracts/_mixins';
 @import '../base/_font';
 @import '../base/_typography';
 @import './_responsive.scss';
@@ -6,6 +8,24 @@
 footer {
   background-color: $color-primary;
   @extend %flex-center-column;
+
+  h2 {
+    font-family: $font-luxurious-script;
+    color: $color-secondary;
+    font-size: $font-size-xxlarge;
+  }
+  .lineh2 {
+    position: relative;
+    bottom: 15px;
+    width: 250px;
+    height: 2px;
+    background-color: $color-secondary;
+  }
+  .time-open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .footer-time {
