@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -90,6 +92,13 @@ a:hover {
     visibility: hidden;
   }
 }
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 button {
   background-color: rgba(0, 0, 0, 0);
 }
@@ -204,6 +213,143 @@ nav a:hover, nav a:focus {
   height: 4px;
   background-color: #e7b846;
   border-radius: 0px 50px 50px 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  line-height: normal;
+  color: black;
+}
+
+a {
+  color: #e7b846;
+  text-decoration: none;
+}
+a:hover {
+  color: #3b4b54;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 576px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  header .line-containerUp, header .line-containerDown {
+    visibility: hidden;
+  }
+  header .navbar-collapse {
+    padding-left: 50px;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  header .line-containerUp, header .line-containerDown {
+    visibility: hidden;
+  }
+  header .navbar-collapse {
+    padding-left: 50px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  header .line-containerUp, header .line-containerDown {
+    visibility: hidden;
+  }
+  header .navbar-collapse {
+    padding-left: 50px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100px;
+  }
+  header .lineMenu, header .lineMenu2, header .lineMenu3, header .lineMenu4, header .lineMenu5, header .lineMenu6 {
+    visibility: hidden;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100px;
+  }
+  header .lineMenu, header .lineMenu2, header .lineMenu3, header .lineMenu4, header .lineMenu5, header .lineMenu6 {
+    visibility: hidden;
+  }
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  background-color: #3b4b54;
+}
+
+.footer-time {
+  font-family: "Jost", sans-serif;
+}
+.footer-time-weekdays {
+  font-weight: normal;
+  font-size: 15px;
+}
+.footer-time-hours {
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.footer-adress {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.footer-contact {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.footer-greeting {
+  font-family: "Luxurious Script", cursive;
+  font-size: 15px;
+}
+
+.footer-legal {
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  font-size: 9px;
 }
 
 /*# sourceMappingURL=style.css.map */

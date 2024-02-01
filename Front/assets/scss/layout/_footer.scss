@@ -1,3 +1,45 @@
 @import '../base/_font';
 @import '../base/_typography';
 @import './_responsive.scss';
+@import '../abstracts/_placeholder';
+
+footer {
+  background-color: $color-primary;
+  @extend %flex-center-column;
+}
+
+.footer-time {
+  font-family: $font-jost;
+  &-weekdays {
+      font-weight: normal;
+      font-size: 15px;
+  }
+  &-hours {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 14px;
+  }
+} 
+
+.footer-adress {
+  font-family: $font-jost;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.footer-contact {
+  font-family: $font-jost;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.footer-greeting {
+  font-family: $font-luxurious-script;
+  font-size: 15px;
+}
+
+.footer-legal {
+  font-family: $font-jost;
+  font-weight: 300;
+  font-size: 9px;
+}

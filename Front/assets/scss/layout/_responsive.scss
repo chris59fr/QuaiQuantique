@@ -1,9 +1,6 @@
 // GESTION DES POINTS DE RUPTURE (MEDIA QUERIES)
+@import '../abstracts/variables';
 
-$breakpoint-small: 576px;
-$breakpoint-medium: 768px;
-$breakpoint-large: 992px;
-$breakpoint-xlarge: 1200px;
 
 // es = 320 < 575
 // s = 576 > 767
