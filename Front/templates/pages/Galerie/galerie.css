@@ -5,14 +5,26 @@
 }
 
 
-
 .slogan {
-
-    position: relative;
+    
+    display: flex;
+    align-items: center;
     right: 28%;
     font-family: 40px;
     color: #fafeff;
     right: 38%;
+
+}
+
+
+
+
+.home img {
+    height: 40px;
+    left: 30px;
+    color: #e7b846;
+
+
 }
 
 
@@ -22,11 +34,9 @@
 }
 
 
-
 .navbar button {
     background-color: #e7b846;
 }
-
 
 
 h1 {
@@ -42,10 +52,11 @@ button .span {
 }
 
 
+
 li {
     display: flex;
     justify-content: center;
-    background-color: #758288;
+    background-color: #8ea3ad;
     padding: 2%;
     font-family: Jost ;
     font-size: 1.5em;
@@ -54,12 +65,26 @@ li {
 }
 
 
-
 li :hover {
 
     color: #e7b846;
     overflow: hidden;
 }
+/*******$ debut picture main *****/
+
+
+
+.picture img {
+    width: 450px;
+    height: 500px;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    box-shadow: 15px 19px 14px 0px rgba(0,0,0,0.1);
+    
+}
+
 
 
 
@@ -96,18 +121,20 @@ li :hover {
 .ouverture p {
     color:#fafeff;
     font-family: Jost;
-    font-weight: 1rem;
+    font-weight: 20px;
     margin-top: 3%;
-    font-size:1.5em ;
+    font-size:1.4em ;
 
 }
 
 
 .adress p {
+
     text-align: center;
-    font-size: 1.5em ;
+    font-size: 1.4em ;
     padding-top: 5%;
     font-weight: 300;
+
 }
 
 
@@ -157,17 +184,17 @@ button {
 }
 
 
-.signature h3{
+.signature h3 {
     font-family: Jost ;
     text-transform: uppercase;
     font-family: sans-serif;
     position: relative;
-    bottom: px;
     font-size: 50px;
     color: #e7b846;
     text-decoration: underline;
-
     
+
+
 }
 
 
