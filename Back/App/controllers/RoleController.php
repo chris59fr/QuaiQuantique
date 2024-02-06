@@ -1,9 +1,14 @@
 <?php
 
-require_once('../models/Role.php');
+namespace App\Controllers;
+
+use App\Models\Role;
+use PDOException;
+
 
 class RoleController 
 {
+
   public function createRole($name_role) {
 
     try {
@@ -57,4 +62,5 @@ class RoleController
       echo "Erreur lors de la suppression du rôle : " . $erreur->getMessage();
     }
   }
+
 }

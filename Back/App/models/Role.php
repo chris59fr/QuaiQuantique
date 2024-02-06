@@ -1,6 +1,10 @@
 <?php
 
-require_once('./Back/config/Database.php');
+namespace App\Models;
+
+use App\config\Database;
+use PDO;
+use PDOException;
 
 class Role 
 {
@@ -82,7 +86,7 @@ class Role
   public function validateName() {
     
     if (strlen($this->name_role) < 3) {
-      throw new Exception("Le nom du role doit cmporter au moins 3 caractères.");
+      throw new PDOException("Le nom du role doit cmporter au moins 3 caractères.");
     }
   }
   public function insertWithValidation() {
