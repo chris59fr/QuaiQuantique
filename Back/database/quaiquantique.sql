@@ -185,38 +185,6 @@ CREATE TABLE alcool
 );
 
 
-
-ALTER TABLE user ADD CONSTRAINT fk_id_role FOREIGN KEY (id_role) REFERENCES `role`(id_role);
-ALTER TABLE message ADD CONSTRAINT fk_id_user_message FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE horaires ADD CONSTRAINT fk_id_user_horaire FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE avis ADD CONSTRAINT fk_id_user_avis FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE menu ADD CONSTRAINT fk_id_user_menu FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE carte ADD CONSTRAINT fk_id_user_carte FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE services ADD CONSTRAINT fk_id_horaires FOREIGN KEY (id_horaires) REFERENCES `horaires`(id_horaires);
-ALTER TABLE categories ADD CONSTRAINT fk_id_carte FOREIGN KEY (id_carte) REFERENCES `carte`(id_carte);
-
-
-ALTER TABLE mets ADD CONSTRAINT fk_id_images_mets FOREIGN KEY (id_images) REFERENCES `images`(id_images); 
-ALTER TABLE mets ADD CONSTRAINT fk_id_categorie_mets FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
-ALTER TABLE vins ADD CONSTRAINT fk_id_categorie_vins FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
-ALTER TABLE softs ADD CONSTRAINT fk_id_categorie_softs FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
-ALTER TABLE alcool ADD CONSTRAINT fk_id_categorie_alcool FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
-
-
-ALTER TABLE jours_services ADD CONSTRAINT fk_id_jours_services FOREIGN KEY (id_jours) REFERENCES `jours`(id_jours);
-ALTER TABLE jours_services ADD CONSTRAINT fk_id_services_jours FOREIGN KEY (id_services) REFERENCES `services`(id_services);
-
-ALTER TABLE user_allergene ADD CONSTRAINT fk_id_user_allergene FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE user_allergene ADD CONSTRAINT fk_id_allergene_user FOREIGN KEY (id_allergie) REFERENCES `allergenes`(id_allergie);
-
-ALTER TABLE user_reservation ADD CONSTRAINT fk_id_user_reservation FOREIGN KEY (id_user) REFERENCES `user`(id_user);
-ALTER TABLE user_reservation ADD CONSTRAINT fk_id_reservation_user FOREIGN KEY (id_reservation) REFERENCES `reservation`(id_reservation);
-
-ALTER TABLE reservation_allergene ADD CONSTRAINT fk_id_reservation_allergene FOREIGN KEY (id_reservation) REFERENCES `reservation`(id_reservation);
-ALTER TABLE reservation_allergene ADD CONSTRAINT fk_id_allergene_reservation FOREIGN KEY (id_allergie) REFERENCES `allergenes`(id_allergie);
-
-
-
 INSERT INTO `role` (`id_role`, `name_role`) VALUES
 (1, 'Administrateur'),
 (2, 'Employe');
@@ -400,26 +368,26 @@ INSERT INTO `vins`(`name_vins`, `type_vins`, `origin_vins`,`description_vins`,`m
 ('Ruinart', 'Champagne', '', '', '2021-11-25', 50, 5);
 
 INSERT INTO `mets` (`nom_mets`,`description_mets`,`prix_mets`,`id_images`,`id_categorie`) VALUES 
-('Oeuf de Ferme Mollet', 'Tel un tableau gastronomique, ce plat harmonieux réunit l\'élégance des œufs mollets, la créativité des galettes de pommes de terre, la douceur de la crème d\'asperges et l\'éclat des légumes verts sautés, transformant chaque assiette en une véritable toile de saveurs et de couleurs.', 23, '', 1),
-('Langoustines en carpaccio ', 'Ballet de saveurs marines et fraîcheur végétale s\'entremêlent dans ce carpaccio de langoustine, accompagné de tomates cerises séchées, de zestes de citron vert pétillants, de concombre croquant, de radis piquants et d\'une touche poétique de fleurs comestibles', 32, '', 1),
-('Foie gras de canard', 'Une alliance subtile : foie gras, truffe et purée de pommes. Le foie gras décadent rencontre l\'élégance de la truffe et la douceur de la purée de pommes, créant une expérience gustative équilibrée et sophistiquée.', 48, '', 1),
-('Salade de pousses d\'épinards', 'truffe/haricots verts parmesan/miso ', 24, '', 1),
-('Tartare de boeuf suisse au couteau', 'Tartare de bœuf suisse au couteau, sublimé par un mélange de noix et pistaches croquantes, accompagné d\'un jaune d\'œuf crémeux et d\'une touche de roquette fraîche.', 41, '', 1),
-('Gaspacho de concombre', 'Célébrant la fraîcheur estivale, le gaspacho fusionne le concombre croquant, l\'onctuosité de l\'avocat, la touche vive du citron et la touche aromatique de la menthe. Parachevé par des pétales de fleurs comestibles, accompagner de tranches de pain croustillant.', 41, '', 1),
-('Rôsti', 'Spécialité suisse emblématique, le Rôsti est une galette de pommes de terre savoureuse et dorée à souhait.', 41, '', 2),
-('La Longeole', 'Une saucisse composée de viande de porc et de fenouil, accompagnée de pommes de terres au vin blanc.', 42, '', 2),
-('Omble Chevalier du Lac d\’Annecy sauce Grenobloise', 'Omble chevalier rôti au beurre mousseux, sauce au citron et persil accompagnée de Pomme de terre Bintje et  légumes anciens.', 65, '', 2),
-('La tartiflette', 'Pommes de terre fondantes, de fromage Reblochon onctueux et de lardons pour la ponte salée irrésistible.', 60, '', 2),
-('La tarte au reblochon de savoie', 'Avec ses arôme prononcés, la tarte au reblochon ressemble à la tartiflette, ces deux préparation sont délicieuses, locaux. Découvrez notre recette qui fera, à coup sûr chavirer le coeur.', 55, '', 2),
-('La fondue savoyarde', 'La fondue au fromage est un plat régional, à base de fromage fondu et de pain sec. Cette préparation est dite moitié/moité à partir de plusieurs fromages comme de l\’Emmental de Savoie, du Comté de montagne, du Beaufort, d\’Abondance ainsi que du Gruyère de Savoie.', 60, '', 2),
-('Plateaux au 3 fromages au choix', 'Reblochon - La vacherin Fribourgeois - Kaltbach - Appenzeller , Comté 24m - Saint Nectaire - Crottin de Chavignol - Roquefort', 65, '', 3),
-('Plateaux au 4 fromages au choix', 'Reblochon - La vacherin Fribourgeois - Kaltbach - Appenzeller , Comté 24m - Saint Nectaire - Crottin de Chavignol - Roquefort', 70, '', 3),
-('Tarte aux noix et au caramel', 'Une tarte croustillante aux noix est garnie d\'un caramel fondant et sucré. Les noix ajoutent une texture croquante et une saveur profonde, tandis que le caramel apporte une touche sucrée et gourmande à ce dessert.', 24, '', 4),
-('Meringues aux double crème', 'Des meringues légères et croustillantes sont servies avec une généreuse portion de double crème, une crème épaisse et riche en matières grasses. Les meringues fondent dans la bouche tandis que la double crème apporte une douceur crémeuse et décadente arborée de deux délicieuses glaces à la noix et au chocolat.', 24, '', 4),
-('Fondue au chocolat', 'Inspirée de la tradition de la fondue suisse, la fondue au chocolat propose des morceaux de fruits frais (comme des fraises, des bananes et des oranges) ainsi que des morceaux de gâteau, trempés dans du chocolat fondu. C\'est un plaisir convivial et décadent à partager.', 37, '', 4),
-('Ébène Bella', 'Sa meringue noire, teintée de charbon actif, contraste avec un intérieur onctueux imprégné d\'arômes de vanille bourbon. Couronnée d\'une crème mascarpone infusée d\'une touche de café éthiopien, elle est drapée d\'une fine dentelle de cacao et ornée de framboises noires d\'une rare intensité, créant une composition artistique qui défie les conventions et éveille les sens.', 50, '', 4),
-('Pavlova fraîcheur estivale', 'Sa meringue croustillante, façonnée avec précision, renferme un intérieur moelleux infusé d\'essences de vanille et de citron. Couronnée d\'une crème fouettée au parfum subtil de fleur d\'oranger, elle est drapée de pétales cristallisés d\'hibiscus et surplombée de baies fraîches gorgées de soleil, créant une toile gastronomique raffinée qui ravira les palais les plus exigeants.', 39, '', 4),
-('Crème brûlée', 'Sa crème anglaise veloutée, parfumée à la vanille de Madagascar, caresse délicatement les papilles. Couverte d\'une fine croûte caramélisée, chaque cuillère plonge dans une symphonie de textures et de saveurs, révélant une douceur crémeuse et des notes de caramel doré. Un équilibre parfait entre tradition et modernité, cette crème brûlée repousse les limites gustatives avec une élégance raffinée.', 25, '', 4);
+('Oeuf de Ferme Mollet', 'Tel un tableau gastronomique, ce plat harmonieux réunit l\'élégance des œufs mollets, la créativité des galettes de pommes de terre, la douceur de la crème d\'asperges et l\'éclat des légumes verts sautés, transformant chaque assiette en une véritable toile de saveurs et de couleurs.', 23, 4, 1),
+('Langoustines en carpaccio ', 'Ballet de saveurs marines et fraîcheur végétale s\'entremêlent dans ce carpaccio de langoustine, accompagné de tomates cerises séchées, de zestes de citron vert pétillants, de concombre croquant, de radis piquants et d\'une touche poétique de fleurs comestibles', 32, 3, 1),
+('Foie gras de canard', 'Une alliance subtile : foie gras, truffe et purée de pommes. Le foie gras décadent rencontre l\'élégance de la truffe et la douceur de la purée de pommes, créant une expérience gustative équilibrée et sophistiquée.', 48, 1, 1),
+('Salade de pousses d\'épinards', 'truffe/haricots verts parmesan/miso ', 24, 5, 1),
+('Tartare de boeuf suisse au couteau', 'Tartare de bœuf suisse au couteau, sublimé par un mélange de noix et pistaches croquantes, accompagné d\'un jaune d\'œuf crémeux et d\'une touche de roquette fraîche.', 41, 6, 1),
+('Gaspacho de concombre', 'Célébrant la fraîcheur estivale, le gaspacho fusionne le concombre croquant, l\'onctuosité de l\'avocat, la touche vive du citron et la touche aromatique de la menthe. Parachevé par des pétales de fleurs comestibles, accompagner de tranches de pain croustillant.', 41, 2, 1),
+('Rôsti', 'Spécialité suisse emblématique, le Rôsti est une galette de pommes de terre savoureuse et dorée à souhait.', 41, 10, 2),
+('La Longeole', 'Une saucisse composée de viande de porc et de fenouil, accompagnée de pommes de terres au vin blanc.', 42, 8, 2),
+('Omble Chevalier du Lac d\’Annecy sauce Grenobloise', 'Omble chevalier rôti au beurre mousseux, sauce au citron et persil accompagnée de Pomme de terre Bintje et  légumes anciens.', 65, 9, 2),
+('La tartiflette', 'Pommes de terre fondantes, de fromage Reblochon onctueux et de lardons pour la ponte salée irrésistible.', 60, 12, 2),
+('La tarte au reblochon de savoie', 'Avec ses arôme prononcés, la tarte au reblochon ressemble à la tartiflette, ces deux préparation sont délicieuses, locaux. Découvrez notre recette qui fera, à coup sûr chavirer le coeur.', 55, 11, 2),
+('La fondue savoyarde', 'La fondue au fromage est un plat régional, à base de fromage fondu et de pain sec. Cette préparation est dite moitié/moité à partir de plusieurs fromages comme de l\’Emmental de Savoie, du Comté de montagne, du Beaufort, d\’Abondance ainsi que du Gruyère de Savoie.', 60, 7, 2),
+('Plateaux au 3 fromages au choix', 'Reblochon - La vacherin Fribourgeois - Kaltbach - Appenzeller , Comté 24m - Saint Nectaire - Crottin de Chavignol - Roquefort', 65, 14, 3),
+('Plateaux au 4 fromages au choix', 'Reblochon - La vacherin Fribourgeois - Kaltbach - Appenzeller , Comté 24m - Saint Nectaire - Crottin de Chavignol - Roquefort', 70, 14, 3),
+('Tarte aux noix et au caramel', 'Une tarte croustillante aux noix est garnie d\'un caramel fondant et sucré. Les noix ajoutent une texture croquante et une saveur profonde, tandis que le caramel apporte une touche sucrée et gourmande à ce dessert.', 24, 21, 4),
+('Meringues aux double crème', 'Des meringues légères et croustillantes sont servies avec une généreuse portion de double crème, une crème épaisse et riche en matières grasses. Les meringues fondent dans la bouche tandis que la double crème apporte une douceur crémeuse et décadente arborée de deux délicieuses glaces à la noix et au chocolat.', 24, 20, 4),
+('Fondue au chocolat', 'Inspirée de la tradition de la fondue suisse, la fondue au chocolat propose des morceaux de fruits frais (comme des fraises, des bananes et des oranges) ainsi que des morceaux de gâteau, trempés dans du chocolat fondu. C\'est un plaisir convivial et décadent à partager.', 37, 19, 4),
+('Ébène Bella', 'Sa meringue noire, teintée de charbon actif, contraste avec un intérieur onctueux imprégné d\'arômes de vanille bourbon. Couronnée d\'une crème mascarpone infusée d\'une touche de café éthiopien, elle est drapée d\'une fine dentelle de cacao et ornée de framboises noires d\'une rare intensité, créant une composition artistique qui défie les conventions et éveille les sens.', 50, 17, 4),
+('Pavlova fraîcheur estivale', 'Sa meringue croustillante, façonnée avec précision, renferme un intérieur moelleux infusé d\'essences de vanille et de citron. Couronnée d\'une crème fouettée au parfum subtil de fleur d\'oranger, elle est drapée de pétales cristallisés d\'hibiscus et surplombée de baies fraîches gorgées de soleil, créant une toile gastronomique raffinée qui ravira les palais les plus exigeants.', 39, 18, 4),
+('Crème brûlée', 'Sa crème anglaise veloutée, parfumée à la vanille de Madagascar, caresse délicatement les papilles. Couverte d\'une fine croûte caramélisée, chaque cuillère plonge dans une symphonie de textures et de saveurs, révélant une douceur crémeuse et des notes de caramel doré. Un équilibre parfait entre tradition et modernité, cette crème brûlée repousse les limites gustatives avec une élégance raffinée.', 25, 16, 4);
 
 INSERT INTO `menu` (`nom_formules`, `description_formule`, `prix_menu`, `id_user`) VALUES
 ('Formule Midi', 'Plat + Dessert Entrée + Plat', 160, 1),
@@ -428,8 +396,83 @@ INSERT INTO `menu` (`nom_formules`, `description_formule`, `prix_menu`, `id_user
 ('Formule du Chef', '"Faite confiance au chef, laissez-le guider vos assiettes par toute sa créativité et son savoir_faire avec les produits de saison."', 250, 1);
 
 
+INSERT INTO `images` (`id_images`, `name_images`, `chemin_images`) VALUES
+(1, 'FOIE GRAS DE CANARD', 'uploads/FOIE GRAS DE CANARD_20240128-175422.webp'),
+(2, 'GASPACHO DE CONCOMBRE', 'uploads/GASPACHO DE CONCOMBRE_20240128-175428.webp'),
+(3, 'LANGOUSTINES EN CARPACCIO', 'uploads/LANGOUSTINES EN CARPACCIO_20240128-175435.'),
+(4, 'OEUF DE FERME MOLLET', 'uploads/OEUF DE FERME MOLLET_20240128-175443.webp'),
+(5, 'SALADE DE POUSSES D’EPINARD ', 'uploads/SALADE DE POUSSES D’EPINARD _20240128-1754'),
+(6, 'TARTARE DE BOEUF SUISSE AU COUTEAU', 'uploads/TARTARE DE BOEUF SUISSE AU COUTEAU_2024012'),
+(7, 'FONDU SAVOYARDE', 'uploads/FONDU SAVOYARDE_20240128-175511.webp'),
+(8, 'LA LONGEOLE', 'uploads/LA LONGEOLE_20240128-175516.webp'),
+(9, 'OMBLE CHEVALIER DU LAC', 'uploads/OMBLE CHEVALIER DU LAC_20240128-175524.web'),
+(10, 'RÖSTI', 'uploads/RÖSTI_20240128-175533.webp'),
+(11, 'TARTE REBLOCHON SAVOIE', 'uploads/TARTE REBLOCHON SAVOIE_20240128-175545.web'),
+(12, 'TARTIFLETTE', 'uploads/TARTIFLETTE_20240128-175551.webp'),
+(13, 'FROMAGES', 'uploads/FROMAGES_20240128-175618.webp'),
+(14, 'PLATEAU FRANCAIS', 'uploads/PLATEAU FRANCAIS_20240128-175623.webp'),
+(15, 'PLATEAU SUISSE', 'uploads/PLATEAU SUISSE_20240128-175629.webp'),
+(16, 'CREME BRULEE', 'uploads/CREME BRULEE_20240128-175650.webp'),
+(17, 'EBENE BELLA', 'uploads/EBENE BELLA_20240128-175656.webp'),
+(18, 'PAVLOVA', 'uploads/PAVLOVA_20240128-175702.webp'),
+(19, 'FONDUE CHOCOLAT', 'uploads/FONDUE CHOCOLAT_20240128-175710.webp'),
+(20, 'MERINGUE DOUBLE CREME', 'uploads/MERINGUE DOUBLE CREME_20240128-175717.webp'),
+(21, 'TARTE NOIX CARAMEL', 'uploads/TARTE NOIX CARAMEL_20240128-175723.webp'),
+(22, 'image-aperitif-1', 'uploads/image-aperitif-1_20240128-175733.webp'),
+(23, 'image-aperitif-2', 'uploads/image-aperitif-2_20240128-175745.webp'),
+(24, 'image-aperitif-3', 'uploads/image-aperitif-3_20240128-175750.webp'),
+(25, 'image-digestif-1', 'uploads/image-digestif-1_20240128-175758.webp'),
+(26, 'image-digestif-2', 'uploads/image-digestif-2_20240128-175803.webp'),
+(27, 'image-digestif-3', 'uploads/image-digestif-3_20240128-175810.webp'),
+(28, 'image-digestif-4', 'uploads/image-digestif-4_20240128-175817.webp'),
+(29, 'categorie_vin', 'uploads/categorie_vin_20240128-175828.webp'),
+(30, 'Rosée', 'uploads/Rosée_20240128-175834.webp'),
+(31, 'Rouge', 'uploads/Rouge_20240128-175841.webp'),
+(32, 'Vin-blanc', 'uploads/Vin-blanc_20240128-175846.webp'),
+(33, 'Vin-rouge', 'uploads/Vin-rouge_20240128-175851.webp'),
+(34, 'cuisinier_1', 'uploads/cuisinier_1_20240128-175900.webp'),
+(35, 'cuisinier_2', 'uploads/cuisinier_2_20240128-175905.webp'),
+(36, 'cuisinier_3', 'uploads/cuisinier_3_20240128-175911.webp'),
+(37, 'cuisinier_4', 'uploads/cuisinier_4_20240128-175923.webp'),
+(38, 'cuisinier_5', 'uploads/cuisinier_5_20240128-175929.webp'),
+(39, 'cuisinier_6', 'uploads/cuisinier_6_20240128-175934.webp'),
+(40, 'cuisinier_7', 'uploads/cuisinier_7_20240128-175939.webp'),
+(41, 'cuisinier_8', 'uploads/cuisinier_8_20240128-175946.webp'),
+(42, 'montagne suisse', 'uploads/montagne suisse_20240128-175954.webp'),
+(43, 'image_luxe_1', 'uploads/image_luxe_1_20240128-180002.webp'),
+(44, 'image_luxe_2', 'uploads/image_luxe_2_20240128-180006.webp'),
+(45, 'image_luxe_3', 'uploads/image_luxe_3_20240128-180011.webp'),
+(46, 'image_luxe_4', 'uploads/image_luxe_4_20240128-180020.webp');
 
 
 
 
+ALTER TABLE `user` ADD CONSTRAINT fk_id_role FOREIGN KEY (id_role) REFERENCES `role`(id_role);
+ALTER TABLE `message` ADD CONSTRAINT fk_id_user_message FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `horaires` ADD CONSTRAINT fk_id_user_horaire FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `avis` ADD CONSTRAINT fk_id_user_avis FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `menu` ADD CONSTRAINT fk_id_user_menu FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `carte` ADD CONSTRAINT fk_id_user_carte FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `services` ADD CONSTRAINT fk_id_horaires FOREIGN KEY (id_horaires) REFERENCES `horaires`(id_horaires);
+ALTER TABLE `categories` ADD CONSTRAINT fk_id_carte FOREIGN KEY (id_carte) REFERENCES `carte`(id_carte);
+
+
+ALTER TABLE `mets` ADD CONSTRAINT fk_id_images_mets FOREIGN KEY (id_images) REFERENCES `images`(id_images); 
+ALTER TABLE `mets` ADD CONSTRAINT fk_id_categorie_mets FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
+ALTER TABLE `vins` ADD CONSTRAINT fk_id_categorie_vins FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
+ALTER TABLE `softs` ADD CONSTRAINT fk_id_categorie_softs FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
+ALTER TABLE `alcool` ADD CONSTRAINT fk_id_categorie_alcool FOREIGN KEY (id_categorie) REFERENCES `categories`(id_categorie);
+
+
+ALTER TABLE `jours_services` ADD CONSTRAINT fk_id_jours_services FOREIGN KEY (id_jours) REFERENCES `jours`(id_jours);
+ALTER TABLE `jours_services` ADD CONSTRAINT fk_id_services_jours FOREIGN KEY (id_services) REFERENCES `services`(id_services);
+
+ALTER TABLE `user_allergene` ADD CONSTRAINT fk_id_user_allergene FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `user_allergene` ADD CONSTRAINT fk_id_allergene_user FOREIGN KEY (id_allergie) REFERENCES `allergenes`(id_allergie);
+
+ALTER TABLE `user_reservation` ADD CONSTRAINT fk_id_user_reservation FOREIGN KEY (id_user) REFERENCES `user`(id_user);
+ALTER TABLE `user_reservation` ADD CONSTRAINT fk_id_reservation_user FOREIGN KEY (id_reservation) REFERENCES `reservation`(id_reservation);
+
+ALTER TABLE `reservation_allergene` ADD CONSTRAINT fk_id_reservation_allergene FOREIGN KEY (id_reservation) REFERENCES `reservation`(id_reservation);
+ALTER TABLE `reservation_allergene` ADD CONSTRAINT fk_id_allergene_reservation FOREIGN KEY (id_allergie) REFERENCES `allergenes`(id_allergie);
 

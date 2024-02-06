@@ -1,0 +1,89 @@
+@import '../abstracts/_variables';// '-*astracts
+@import '../abstracts/_mixins';
+@import '../base/_font';
+@import '../base/_typography';
+@import '../abstracts/_responsive.scss';
+@import '../abstracts/_placeholder';
+
+footer {
+  background-color: $color-primary;
+  @extend %flex-center-column;
+  color: $color-third;
+  h2 {
+    font-family: $font-luxurious-script;
+    color: $color-secondary;
+    font-size: $font-size-xxlarge;
+    display: flex;
+    justify-content: center;
+  }
+
+  .lineh2 {
+    position: relative;
+    bottom: 15px;
+    width: 250px;
+    height: 2px;
+    background-color: $color-secondary;
+  }
+
+  .time-open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.footer-time {
+  font-family: $font-jost;
+  &-weekdays {
+      font-weight: normal;
+      font-size: 15px;
+  }
+  &-hours {
+    @include font ($font-jost, 300, $font-size-small)
+  }
+} 
+.footer-adress {
+  @include font ($font-jost, 500, $font-size-small);
+  @extend %flex-center-column;
+
+  .lineadress {
+    position: relative;
+    width: 100px;
+    height: 2px;
+    background-color: $color-secondary;
+  }
+}
+.nosAdress h4 {
+  @include font ($font-jost, 200, $font-size-xlarge);
+  @extend %flex-center-column;
+}
+.nosAdress p {
+  @extend %flex-center-column;
+}
+.footer-contact {
+  @include font ($font-jost, 500, $font-size-small);
+  background-color: $color-secondary;
+  color: $color-third;
+}
+.footer-greeting {
+  @include font ($font-luxurious-script, 300, $font-size-small);
+}
+.line-legal {
+  position: relative;
+  width: 317px;
+  height: 2px;
+  background-color: $color-secondary;
+  margin-bottom: 10px
+}
+.signature h5 {
+  font-family: $font-luxurious-script;
+}
+.signature {
+  margin: $spacing-xlarge;
+}
+.footer-legal {
+  @include font ($font-jost, 300, 9px);
+  @extend %flex-center-column;
+}
+.footer-legal p {
+  margin-bottom: 5px;
+}
