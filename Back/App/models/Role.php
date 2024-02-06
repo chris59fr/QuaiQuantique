@@ -78,7 +78,7 @@ class Role
 
   }
 
-  //verification nbr caractères
+
   public function validateName() {
     
     if (strlen($this->name_role) < 3) {
@@ -89,5 +89,20 @@ class Role
     $this->validateName();
     $this->insert();
   }
+  public static function getAllRoles() {
 
+    try {
+      
+      $db = self::getDBConnection();
+      $requetes = $db->prepare('SELECT * FROM `role`');
+      $requetes->execute();
+
+      return $requetes->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (PDOException $e) {
+
+      echo "Erreur lors de la récupération des rôles : " . $e->getMessage();
+      return array(); 
+    }
+  }
 }
