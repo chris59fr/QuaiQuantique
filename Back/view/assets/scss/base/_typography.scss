@@ -1,0 +1,28 @@
+
+//Reinitialisation des marges et padding
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+//Style de base pour le texte
+
+body {
+  font-family: $font-jost;
+  font-size: 10px;
+  line-height: normal;
+  color: black;
+}
+
+//Styles des liens
+a {
+  color: $color-secondary;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
+

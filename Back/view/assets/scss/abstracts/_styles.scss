@@ -1,0 +1,292 @@
+// Fiche scss root project
+
+// SI VOUS NE COMPRENEZ PAS ALLEZ SUR : https://sass-lang.com/documentation/
+
+// Variables de couleurs :
+
+$color-primary: #3b4b54;
+$color-primary-light-70: rgba(59, 75, 84, 0.7);
+$color-primary-light-30: rgba(59, 75, 84, 0.3);
+
+$color-secondary: #e7b846;
+$color-secondary-light-70: rgba(231, 184, 70, 0.7);
+$color-secondary-light-30: rgba(231, 184, 70, 0.3);
+
+$color-third: #fafeff;
+$color-third-light-70: rgba(250, 254, 255, 0.7);
+$color-third-light-30: rgba(250, 254, 255, 0.3);
+
+$body-color: rgba(59, 75, 84, 0.3);
+
+
+// Variables pour les Fonts : 
+
+$font-jost: 'Jost', sans-serif;
+$font-luxurious-script: 'Luxurious Script', cursive;
+
+// Typo Responsive
+$font-size-small: 0.875rem; // Correspond à 14px pour une taille de police de base de 16px (1rem)
+$font-size-medium: 1rem;    // Correspond à 16px pour une taille de police de base de 16px (1rem)
+$font-size-large: 1.25rem;  // Correspond à 20px pour une taille de police de base de 16px (1rem)
+$font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de base de 16px (1rem)
+
+// Variables pour les marges et les espacements :
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-xlarge: 32px;
+
+
+// Classe Réutilisable
+
+// MENU
+.menu {
+    font-family: $font-jost;
+}
+
+.menu a {
+    font-weight: normal;
+}
+
+.menu a:hover {
+    font-weight: 600;
+}
+
+.menu a:focus {
+    font-weight: 600;
+}
+
+// HOME
+
+.home-title {
+    font-family: $font-luxurious-script;
+    font-size: 50px;
+}
+
+.home-subtitle {
+    font-family: $font-jost;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.home-subtitle {
+    font-family: $font-jost;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.home-paragraph {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+// FORMULES
+
+.formule {
+    font-family: $font-jost;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+// MIDI et SOIR
+
+.midi-soir {
+    font-family: $font-luxurious-script;
+    font-size: 15px;
+}
+
+// PLAT + DESSERT
+
+.plat-dessert {
+    font-family: $font-jost;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+// PRICE 
+.price {
+    font-family: $font-jost;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+
+
+// CARTE
+
+.cards-title {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.card-dishes {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.card-description {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.card-price {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 10px;
+    font-style: italic;
+}
+
+// Sous Titre Menu Boissons
+
+.drink-subtitle {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+// IMMERSION
+
+.immersion-title {
+    font-family: $font-luxurious-script;
+    font-size: 55px;
+}
+
+.immersion-paragraph {
+    font-family: $font-jost;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+// RÉSERVATION-INSCRIPTION-CONNEXION
+
+.ric-description {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.ric-no-account {
+    font-family: $font-jost;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+// TEXTE BUTTON
+
+.button-text {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+// ADMIN
+
+.admin-menu-text {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.admin-menu-focus {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 25px;
+    color: $color-secondary;
+}
+
+.admin-title {
+    font-family: $font-jost;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.admin-description {
+    font-family: $font-jost;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.admin-price {
+    font-family: $font-jost;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+// FOOTER
+.footer-time {
+    font-family: $font-jost;
+    &-weekdays {
+        font-weight: normal;
+        font-size: 15px;
+    }
+}
+    &-hours {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 14px;
+} 
+
+.footer-adress {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.footer-contact {
+    font-family: $font-jost;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-greeting {
+    font-family: $font-luxurious-script;
+    font-size: 15px;
+}
+
+.footer-legal {
+    font-family: $font-jost;
+    font-weight: 300;
+    font-size: 9px;
+}
+
+// Mixin pour les Polices :
+
+@mixin font ($family, $weight, $size) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+  // Mixin pour les couleurs :
+
+@mixin color ($property, $color) {
+    #{$property}: $color;
+}
+
+  // Mixin pour les ombres :
+
+@mixin box-shadow ($x, $y, $blur, $color) {
+    box-shadow: $x $y $blur $color;
+}
+
+  // Mixin pour les transitions :
+
+@mixin transition ($property, $duration) {
+    transition: $property $duration;
+}
+
+
+
+
+
+
+
+
+
