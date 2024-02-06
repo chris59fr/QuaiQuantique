@@ -1,0 +1,114 @@
+// GESTION DES POINTS DE RUPTURE (MEDIA QUERIES)
+@import '../abstracts/variables';
+
+
+// es = 320 < 575
+// s = 576 > 767
+// md = 768 > 991
+// l = 992 > 1199
+// xl = 1200 > 1399
+// xxl = 1400 > eternam
+
+// Styles pour le menu responsive
+
+// ecran taille petit
+@media screen and (max-width: $breakpoint-small) {
+
+  header {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+
+    .line-containerUp, .line-containerDown{
+      visibility: hidden;
+    }
+    .navbar-collapse {
+      padding-left: 50px;
+    }
+  }
+
+}
+
+// ecran taille moyenne
+@media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+
+  header {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+
+    .line-containerUp, .line-containerDown{
+      visibility: hidden;
+    }
+
+    .navbar-collapse {
+      padding-left: 50px;
+    }
+  }
+
+
+}
+
+// ecran taille moyenne
+@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px;
+
+    .line-containerUp, .line-containerDown{
+      visibility: hidden;
+    }
+
+    .navbar-collapse {
+      padding-left: 50px;
+    }
+  }
+
+}
+
+//ecrans taille grands
+@media screen and (min-width: $breakpoint-large) and (max-width: $breakpoint-xlarge) {
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100px;
+
+    .lineMenu, .lineMenu2, .lineMenu3, .lineMenu4, .lineMenu5, .lineMenu6 {
+      visibility: hidden;
+    }
+    
+  }
+
+}
+
+//ecran taille très grands
+@media screen and (min-width: $breakpoint-xlarge) {
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100px;
+
+    .lineMenu, .lineMenu2, .lineMenu3, .lineMenu4, .lineMenu5, .lineMenu6 {
+      visibility: hidden;
+    }
+
+  }
+
+
+} 
