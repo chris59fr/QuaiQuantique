@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');
+
+
+// Variables pour les Fonts : 
+
+$font-jost: 'Jost', sans-serif;
+$font-luxurious-script: 'Luxurious Script', cursive;
+
+// Typo Responsive
+$font-size-small: 0.875rem; // Correspond à 14px pour une taille de police de base de 16px (1rem)
+$font-size-medium: 1rem;    // Correspond à 16px pour une taille de police de base de 16px (1rem)
+$font-size-large: 1.25rem;  // Correspond à 20px pour une taille de police de base de 16px (1rem)
+$font-size-xlarge: 1.5rem;  // Correspond à 24px pour une taille de police de base de 16px (1rem)
+$font-size-xxlarge: 2.8rem;

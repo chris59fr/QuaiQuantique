@@ -1,0 +1,65 @@
+@import '../base/_font';
+@import '../abstracts/_responsive';
+@import '../abstracts/_placeholder';
+@import '../components/_burger.scss';
+@import '../abstracts/_mixins';
+
+header {
+  background-color: $color-primary-light-70;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav a {
+  text-transform: uppercase;
+  color: $color-third;
+  font-size: $font-size-large;
+  font-weight: normal;
+
+  &:hover,
+  &:focus {
+    color: $color-secondary;
+  }
+}
+
+
+
+.lineMenu {
+  width: 82px;
+  @include line;
+}
+.lineMenu2 {
+  width: 130px;
+  @include line;
+}
+.lineMenu3 {
+  width: 110px;
+  @include line;
+}
+.lineMenu4 {
+  width: 40px;
+  @include line;
+}
+.lineMenu5 {
+  width: 160px;
+  @include line;
+}
+.lineMenu6 {
+  width: 120px;
+  @include line;
+}
+
+.lineUp {
+  width: 65px;
+  height: 4px;
+  background-color: $color-secondary;
+  border-radius: 0px 50px 50px 0px;
+}
+.lineDown {
+  width: 110px;
+  height: 4px;
+  background-color: $color-secondary;
+  border-radius: 0px 50px 50px 0px;
+}
