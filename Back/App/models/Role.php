@@ -89,10 +89,12 @@ class Role
       throw new PDOException("Le nom du role doit cmporter au moins 3 caractères.");
     }
   }
+  
   public function insertWithValidation() {
     $this->validateName();
     $this->insert();
   }
+
   public static function getAllRoles() {
 
     try {

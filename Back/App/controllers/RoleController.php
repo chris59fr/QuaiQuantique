@@ -26,8 +26,11 @@ class RoleController
   public function readRole() {
 
     $roles = Role::getAllRoles();
+
     echo "Liste des rôles : <br>";
+
     foreach ($roles as $role) {
+
       echo $role['name_role'] . "<br>";
     }
   }
