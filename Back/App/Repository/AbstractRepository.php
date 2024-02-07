@@ -2,8 +2,6 @@
 
 namespace App\Repository;
 
-use App\config\Database;
-
 /**
  * Parents des Repos
  */

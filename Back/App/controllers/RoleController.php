@@ -17,11 +17,13 @@ class RoleController
 
   public function createRole($name_role) {
 
+    // $name_role = $_GET['name_role']; formulaire
+
     try {
       $role = new Role(null, $name_role);
       $this->rolerepository->save($role);
 
-      echo "Le role a été crée.";
+      echo "Le role a été crée, avec id :" . $role->getIdRole();
 
     }catch (Throwable $erreur) {
 
@@ -37,12 +39,17 @@ class RoleController
 
     foreach ($roles as $role) {
 
-      echo $role['name_role'] . "<br>";
+      echo sprintf(
+        //sprintf template de chain caract %d (chiffre) %s(lettre)
+        '%d - %s <br>',
+        $role->getIdRole(),
+        $role->getNameRole()
+      );
     }
   }
 
   public function updateRole($id_role, $name_role) {
-
+    //Get FIOOMULAIRE
     try {
 
       $role = new Role($id_role, $name_role);
@@ -57,7 +64,7 @@ class RoleController
   }
 
   public function deleteRole($id_role) {
-
+    //GET fORMULAIRE
     try{
 
       $this->rolerepository->delete($id_role);

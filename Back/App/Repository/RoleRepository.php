@@ -22,12 +22,13 @@ class RoleRepository extends AbstractRepository
     
     try {
 
-      $requetes = $this->getDBConnection()->prepare('INSERT INTO `role`(`name_role`) VALUES (:name_role) RETURNING `id_role`'); 
-      $requetes->bindParam(':name_role', $role->getNameRole());
+      $requetes = $this->getDBConnection()->prepare('INSERT INTO `role`(`name_role`) VALUES (:name_role)'); 
+      $requetes->bindValue(':name_role', $role->getNameRole());
       $requetes->execute();
 
-      $id_role = $requetes->fetch();//a teste retourne ID du role insert
+      $id_role = $this->getDBConnection()->lastInsertId();//a teste retourne ID du role insert
       $role->setIdRole($id_role);
+    
       
     } catch (PDOException $erreur) {
       
@@ -59,8 +60,8 @@ class RoleRepository extends AbstractRepository
     try {
       
       $requetes = $this->getDBConnection()->prepare('UPDATE `role` SET `name_role` = :name_role WHERE `id_role` = :id_role');
-      $requetes->bindParam(':name_role', $role->getNameRole());
-      $requetes->bindParam(':id_role', $role->getIdRole());
+      $requetes->bindValue(':name_role', $role->getNameRole());
+      $requetes->bindValue(':id_role', $role->getIdRole());
       $requetes->execute();
 
 
@@ -105,20 +106,26 @@ class RoleRepository extends AbstractRepository
   
     /**
    * Sélection de tous les rôles
+   * @return Role[] (phpDoc)
    */
-  public function getAllRoles() 
+  public function getAllRoles(): array
   {
     try {
       
       $requetes = $this->getDBConnection()->prepare('SELECT * FROM `role`');
       $requetes->execute();
-
-      return $requetes->fetchAll(PDO::FETCH_ASSOC);
+      $roles = [];
+      //donne la prochaine ligne temps qu'il y en a (ligne courante est avance)
+      while ($roleData = $requetes->fetch(PDO::FETCH_ASSOC)) {
+        //on transform le role en objet
+        $roles[] = new Role($roleData['id_role'], $roleData['name_role']);
+      }
+      return $roles;
 
     } catch (PDOException $erreur) {
 
       echo "Erreur lors de la récupération des rôles : " . $erreur->getMessage();
-      return array(); 
+      return []; 
     }
   }
 
