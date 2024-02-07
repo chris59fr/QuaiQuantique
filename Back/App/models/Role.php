@@ -18,18 +18,65 @@ class Role
     $this->name_role = $name_role;
     $this->connexion = $this->getDBConnection();
   }
-  //connexion BDD
-  private function getDBConnection() {
+
+    /**
+   * Connexion BDD
+   */
+  private function getDBConnection() 
+  {
     $db = Database::getInstance();
     return $db->getConnexion();
   }
 
-  //ajouter un role
+    /**
+   * Getter Setter pour name_role
+   */
+  public function getNameRole()
+  {
+    return $this->name_role;
+  }
+
+  public function setNameRole($name_role): self
+  {
+    $this->name_role = $name_role;
+
+    return $this;
+  }
+
+    /**
+   * Getter Setter pour id_role
+   */
+  public function getIdRole()
+  {
+    return $this->id_role;
+  }
+
+  public function setIdRole($id_role): self
+  { 
+    if ($id_role === null) {
+
+      $this->insert();
+
+    } else {
+
+      $this->update();
+
+    }
+    $this->id_role = $id_role;
+
+    return $this;
+  }
+  
+
+
+    /**
+   * Insertion d'un rôle
+   */
   public function insert() {
 
     try {
-
-      $requetes = $this->connexion->prepare('INSERT INTO `role`(`name_role`) VALUES (:$name_role)');
+      $this->validateName();
+      $requetes = $this->connexion->prepare('INSERT INTO `role`(`name_role`) VALUES (:name_role)');      
       $requetes->bindParam(':name_role', $this->name_role);
       $requetes->execute();
 
@@ -38,9 +85,12 @@ class Role
       echo "Erreur d'insertion : " . $erreur->getMessage();
     }
   }
-  //lecture des role en fonction des user
-  public function select() {
-
+  
+    /**
+   * Lecture d'un rôle
+   */
+  public function select() 
+  {
     try {
 
       $requetes = $this->connexion->prepare('SELECT `name_role` FROM `role`');
@@ -51,9 +101,12 @@ class Role
       echo "Erreur de selection : " . $erreur->getMessage();
     }
   }
-  //changer les role 
-  public function update() {
 
+    /**
+   * Mise à jour d'un rôle
+   */
+  public function update() 
+  {
     try {
       
       $requetes = $this->connexion->prepare('UPDATE `role` SET `name_role` = :name_role WHERE `id_role` = :id_role');
@@ -66,8 +119,12 @@ class Role
       echo "Erreur d'update : " . $erreur->getMessage();
     }
   }
-  //supp un role
-  public function delete() {
+  
+    /**
+   * Suppression d'un rôle
+   */
+  public function delete() 
+  {
 
     try {
 
@@ -77,26 +134,35 @@ class Role
 
     } catch (PDOException $erreur){
 
-      echo "Erreur de supression : " . $erreur->getMessage();
+      echo "Erreur de suppression : " . $erreur->getMessage();
     }
 
   }
 
-
-  public function validateName() {
-    
+    /**
+   * Validation du nom de rôle
+   */
+  public function validateName() 
+  {
     if (strlen($this->name_role) < 3) {
-      throw new PDOException("Le nom du role doit cmporter au moins 3 caractères.");
+      throw new PDOException("Le nom du rôle doit cmporter au moins 3 caractères.");
     }
   }
   
-  public function insertWithValidation() {
+    /**
+   * Insertion d'un rôle avec validation
+   */
+  public function insertWithValidation() 
+  {
     $this->validateName();
     $this->insert();
   }
 
-  public static function getAllRoles() {
-
+    /**
+   * Sélection de tous les rôles
+   */
+  public static function getAllRoles() 
+  {
     try {
       
       $db = self::getDBConnection();
@@ -105,10 +171,14 @@ class Role
 
       return $requetes->fetchAll(PDO::FETCH_ASSOC);
 
-    } catch (PDOException $e) {
+    } catch (PDOException $erreur) {
 
-      echo "Erreur lors de la récupération des rôles : " . $e->getMessage();
+      echo "Erreur lors de la récupération des rôles : " . $erreur->getMessage();
       return array(); 
     }
   }
+
+
+
+
 }
