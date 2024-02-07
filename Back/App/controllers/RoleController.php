@@ -4,20 +4,26 @@ namespace App\Controllers;
 
 use App\Models\Role;
 use PDOException;
-
+use App\Repository\RoleRepository;
+use Throwable;
 
 class RoleController 
 {
+  private RoleRepository $rolerepository;
+
+  public function __construct() {
+    $this->rolerepository = new RoleRepository ;
+  }
 
   public function createRole($name_role) {
 
     try {
       $role = new Role(null, $name_role);
-      $role->insertWithValidation();
+      $this->rolerepository->save($role);
 
       echo "Le role a été crée.";
 
-    }catch (PDOException $erreur) {
+    }catch (Throwable $erreur) {
 
       echo "Erreur lors de la création du role : " . $erreur->getMessage();
     }
@@ -25,7 +31,7 @@ class RoleController
 
   public function readRole() {
 
-    $roles = Role::getAllRoles();
+    $roles = $this->rolerepository->getAllRoles();
 
     echo "Liste des rôles : <br>";
 
@@ -39,13 +45,12 @@ class RoleController
 
     try {
 
-      $role = new Role($id_role);
-      $role->name_role = $name_role;
-      $role->update();
+      $role = new Role($id_role, $name_role);
+      $this->rolerepository->save($role);
 
       echo "Le role a été mis à jours avec succes.";
 
-    } catch (PDOException $erreur) {
+    } catch (Throwable $erreur) {
 
       echo "Erreur lors de la mise a jour du role : " . $erreur->getMessage();
     }
@@ -55,12 +60,11 @@ class RoleController
 
     try{
 
-      $role = new Role($id_role);
-      $role->delete();
+      $this->rolerepository->delete($id_role);
 
       echo "Le rolea été supprimé.";
 
-    }catch (PDOException $erreur) {
+    }catch (Throwable $erreur) {
       
       echo "Erreur lors de la suppression du rôle : " . $erreur->getMessage();
     }
