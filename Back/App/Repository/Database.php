@@ -1,4 +1,5 @@
 <?php
+
 class Database {
     // L'instance unique de la classe
     private static $instance = null;
@@ -35,7 +36,7 @@ class Database {
     }
 }
 
-// Use dataBase
-$db = Database::getInstance();
-$connexion = $db->getConnexion();
+// // Use dataBase
+// $db = Database::getInstance();
+// $connexion = $db->getConnexion();
 ?>
