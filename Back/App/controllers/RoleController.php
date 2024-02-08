@@ -69,7 +69,7 @@ class RoleController
 
       $this->rolerepository->delete($id_role);
 
-      echo "Le rolea été supprimé.";
+      echo "Le role a été supprimé.";
 
     }catch (Throwable $erreur) {
       

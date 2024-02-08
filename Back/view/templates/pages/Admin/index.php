@@ -6,4 +6,4 @@ require_once (__DIR__ . '/../../../../../autoloader.php');
 
 $controller = new RoleController;
 
-$controller->createRole('tata');
+$controller->createRole('TOTO');
