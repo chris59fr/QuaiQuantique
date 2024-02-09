@@ -6,7 +6,7 @@ use App\models\User;
 use Exception;
 use PDO;
 use PDOException;
-use UnexpectedValueException;
+
 
 /**
  * Connection avec le methode insert etc 
@@ -83,7 +83,7 @@ class UserRepository extends AbstractRepository
   }
 
   //voir JOINTURE selection utilisateur avec id_role de 1 = Admin  2 = employé  3 = clients
-
+  
 
   /**
    * Update d'un utilisateur
@@ -130,7 +130,22 @@ class UserRepository extends AbstractRepository
     }
   }
 
+  /**
+   * Delete User
+   */
+  public function deleteUser(USER $id_user) {
 
+    try {
 
+      $requetes = $this->getDBConnection()->prepare('DELETE FROM `user` WHERE `id_user` = :id_user');
+      $requetes->bindParam(':id_user', $id_user);
+      $requetes->execute();
 
+      echo "L\'utilisateur à été supprimer";
+
+    }catch (PDOException $error) {
+
+      echo "Erreur lors de la supression de l'utilisateur : " . $error->getMessage();
+    }
+  }
 }
