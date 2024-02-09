@@ -11,6 +11,7 @@ class User
     $this->firstname_user = $firstname_user;
     $this->dob_user = $dob_user;
     $this->email_user = $email_user;
+    //statut
     $this->password_user = password_hash($password_user, PASSWORD_BCRYPT);
   }
 
@@ -61,12 +62,12 @@ class User
     /**
      * Getter et Setter 
      */
-    public function getDateUser(): string
+    public function getDobUser(): string
     {
       return $this->dob_user;
     }
     
-    public function setDateUser(string $dob_user): void
+    public function setDobUser(string $dob_user): void
     {
       $this->dob_user = $dob_user;
     }

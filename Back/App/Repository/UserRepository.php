@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\models\User;
+use Exception;
 use PDO;
 use PDOException;
+use UnexpectedValueException;
 
 /**
  * Connection avec le methode insert etc 
@@ -20,11 +22,22 @@ class UserRepository extends AbstractRepository
   public function createUser(User $user) {
     
     try {
+      //Vérification des types de donnée
+      if (!is_string($user->getNameUser()) || 
+          !is_string($user->getFristnameUser()) || 
+          !is_string($user->getDobUser()) || 
+          !is_string($user->getEmailUser()) || 
+          !is_string($user->getPasswordUser()))
+      {
+        throw new Exception("Les types de donnes des champs ne sont pas valide");
+      }
+
+      //Verification du format @email
 
       $requetes = $this->getDBConnection()->prepare('INSERT INTO `user`(`name_user`, `firstname_user`, `dob_user`, `email_user`, `password_user`) VALUES (:name_user, :firstname_user, :dob_user, :email_user, :password_user)'); 
       $requetes->bindValue(':name_user', $user->getNameUser());
       $requetes->bindValue(':firstname_user', $user->getFristnameUser());
-      $requetes->bindValue(':dob_user', $user->getDateUser());
+      $requetes->bindValue(':dob_user', $user->getDobUser());
       $requetes->bindValue(':email_user', $user->getEmailUser());
       $requetes->bindValue(':password_user', $user->getPasswordUser());
 
@@ -72,13 +85,22 @@ class UserRepository extends AbstractRepository
   {
     try {
 
-      $requetes = $this->getDBConnection()->prepare('UPDATE `user` SET `name_user` = :name_user, `firstname_user` = :firstname_user, ``');
+      $requetes = $this->getDBConnection()->prepare('UPDATE `user` SET `name_user` = :name_user, `firstname_user` = :firstname_user, `dob_user` = :dob_user, `email_user` = :email_user');
+      $requetes->bindValue(':name_user', $user->getNameUser());
+      $requetes->bindValue(':firstname_user', $user->getFristnameUser());
+      $requetes->bindValue(':dob_user', $user->getDobUser());
+      $requetes->bindValue(':email_user', $user->getEmailUser());
 
-
+      $requetes->execute();
+      echo "l'utilisateur a bien été mise à jour";
 
     } catch (PDOException $error){
 
-      echo "Erreur lors de la création de l'utilisateur" . $error->getMessage();
+      echo "Erreur lors de la mise a jours de l'utilisateur" . $error->getMessage();
     }
   }
+
+  /**
+   * Update Password
+   */
 }
