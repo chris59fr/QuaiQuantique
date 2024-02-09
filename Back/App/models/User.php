@@ -11,8 +11,7 @@ class User
     $this->firstname_user = $firstname_user;
     $this->dob_user = $dob_user;
     $this->email_user = $email_user;
-    //statut
-    $this->password_user = password_hash($password_user, PASSWORD_BCRYPT);
+    $this->password_user = password_hash($password_user, PASSWORD_ARGON2ID);
   }
 
     /**
@@ -97,11 +96,12 @@ class User
 
     public function setPasswordUser(string $password_user): void
     {
-      $this->password_user = password_hash($password_user, PASSWORD_BCRYPT);
+      $this->password_user = password_hash($password_user, PASSWORD_ARGON2ID);
     }
 
     public function verifyPassword(string $password) : bool
     {
       return password_verify($password, $this->password_user);
     }
+
 }

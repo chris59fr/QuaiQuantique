@@ -29,10 +29,17 @@ class UserRepository extends AbstractRepository
           !is_string($user->getEmailUser()) || 
           !is_string($user->getPasswordUser()))
       {
+
         throw new Exception("Les types de donnes des champs ne sont pas valide");
+
       }
 
       //Verification du format @email
+      if (!filter_var($user->getEmailUser(), FILTER_VALIDATE_EMAIL)) {
+
+        throw new Exception("L'adresse mail n'est pas valide");
+
+      }
 
       $requetes = $this->getDBConnection()->prepare('INSERT INTO `user`(`name_user`, `firstname_user`, `dob_user`, `email_user`, `password_user`) VALUES (:name_user, :firstname_user, :dob_user, :email_user, :password_user)'); 
       $requetes->bindValue(':name_user', $user->getNameUser());
@@ -81,8 +88,8 @@ class UserRepository extends AbstractRepository
   /**
    * Update d'un utilisateur
    */
-  public function updateUser(User $user)
-  {
+  public function updateUser(User $user){
+    
     try {
 
       $requetes = $this->getDBConnection()->prepare('UPDATE `user` SET `name_user` = :name_user, `firstname_user` = :firstname_user, `dob_user` = :dob_user, `email_user` = :email_user');
@@ -90,8 +97,8 @@ class UserRepository extends AbstractRepository
       $requetes->bindValue(':firstname_user', $user->getFristnameUser());
       $requetes->bindValue(':dob_user', $user->getDobUser());
       $requetes->bindValue(':email_user', $user->getEmailUser());
-
       $requetes->execute();
+
       echo "l'utilisateur a bien été mise à jour";
 
     } catch (PDOException $error){
@@ -103,4 +110,27 @@ class UserRepository extends AbstractRepository
   /**
    * Update Password
    */
+  public function updatePasswordUser(User $user) {
+
+    try {
+
+      $requetes = $this->getDBConnection()->prepare('UPDATE `user` SET `password_user` = :password_user WHERE `id_user` = :id_user');
+
+      $newPasswordUser = password_hash($user->getPasswordUser(), PASSWORD_ARGON2ID);
+      
+      $requetes->bindValue(':password_user', $newPasswordUser);
+      $requetes->bindValue(':id_user', $user->getIdUser());
+      $requetes->execute();
+
+      echo "Le mot de passe a bien été mise à jour";
+
+    } catch (PDOException $error) {
+
+      echo "Erreur lors de la mise a jours de l'utilisateur" . $error->getMessage();
+    }
+  }
+
+
+
+
 }
