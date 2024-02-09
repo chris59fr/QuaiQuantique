@@ -14,6 +14,9 @@ use PDOException;
 
 class UserRepository extends AbstractRepository 
 {
+  /**
+   * Creation d'utilisateur
+   */
   public function createUser(User $user) {
     
     try {
@@ -35,14 +38,47 @@ class UserRepository extends AbstractRepository
     
   }
 
-  public function readUser(){
+  /**
+   * Selection de tout les User
+   * @return User[]
+   */
+  public function readUser(): array {
 
     try {
+      //sélectionne tout les users
+      $requetes = $this->getDBConnection()->prepare('SELECT * FROM `user`');
+      $requetes->execute();
+      $users = [];
+
+      while ($userData = $requetes->fetch(PDO::FETCH_ASSOC)) {
+        $users[] = new User($userData['id_user'], $userData['name_user'], $userData['firstname_user'], $userData['dob_user'], $userData['email_user'], $userData['']);
+      }
+      return $users;
+
+    } catch (PDOException $error){
+
+      echo  "Erreur lors de la récupération des users : " . $error->getMessage();
+      return[];
+    }
+  }
+
+  //voir JOINTURE selection utilisateur avec id_role de 1 = Admin  2 = employé  3 = clients
+
+
+  /**
+   * Update d'un utilisateur
+   */
+  public function updateUser(User $user)
+  {
+    try {
+
+      $requetes = $this->getDBConnection()->prepare('UPDATE `user` SET `name_user` = :name_user, `firstname_user` = :firstname_user, ``');
+
 
 
     } catch (PDOException $error){
 
+      echo "Erreur lors de la création de l'utilisateur" . $error->getMessage();
     }
   }
-
 }

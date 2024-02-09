@@ -17,7 +17,7 @@ class User
     /**
      * Getter et Setter id_user
      */
-    public function getIdUser(): int
+    public function getIdUser(): ?int
     {
         return $this->id_user;
     }
