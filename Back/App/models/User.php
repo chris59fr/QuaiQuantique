@@ -13,6 +13,7 @@ class User
     $this->email_user = $email_user;
     $this->password_user = password_hash($password_user, PASSWORD_BCRYPT);
   }
+
     /**
      * Getter et Setter id_user
      */
@@ -28,6 +29,7 @@ class User
         return $this;
     }
     
+
     /**
      * Getter et Setter name_user
      */
@@ -40,6 +42,7 @@ class User
     {
       $this->name_user = $name_user;
     }
+
 
     /**
      * Getter et Setter firstname_user
@@ -54,6 +57,7 @@ class User
       $this->firstname_user = $firstname_user;
     }
 
+
     /**
      * Getter et Setter 
      */
@@ -67,8 +71,36 @@ class User
       $this->dob_user = $dob_user;
     }
 
+
     /**
      * Getter et Setter email_user
      */
+    public function getEmailUser(): string
+    {
+      return $this->email_user;
+    }
 
+    public function setEmailUser(string $email_user): void
+    {
+      $this->email_user = $email_user;
+    }
+    
+
+    /**
+     * Getter et Setter password_
+     */
+    public function getPasswordUser(): string
+    {
+      return $this->password_user;
+    }
+
+    public function setPasswordUser(string $password_user): void
+    {
+      $this->password_user = password_hash($password_user, PASSWORD_BCRYPT);
+    }
+
+    public function verifyPassword(string $password) : bool
+    {
+      return password_verify($password, $this->password_user);
+    }
 }

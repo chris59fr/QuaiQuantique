@@ -1,5 +1,6 @@
 <?php
 
+
 class Database {
     // L'instance unique de la classe
     private static $instance = null;
