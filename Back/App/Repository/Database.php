@@ -1,5 +1,8 @@
 <?php
+namespace App\Repository;
 
+use PDO;
+use PDOException;
 
 class Database {
     // L'instance unique de la classe

@@ -14,6 +14,10 @@ use PDOException;
 
 class UserRepository extends AbstractRepository 
 {
-  
+  public function createUser() {
+    
+    $requestes = getConnexion()->prepare
+
+  }
 
 }
