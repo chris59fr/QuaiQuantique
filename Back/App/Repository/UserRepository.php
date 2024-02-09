@@ -39,7 +39,9 @@ class UserRepository extends AbstractRepository
 
     try {
 
-      
+
+    } catch (PDOException $error){
+
     }
   }
 
