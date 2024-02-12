@@ -4,6 +4,11 @@
 
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
 
 .slogan {
     
@@ -57,7 +62,7 @@ li {
     display: flex;
     justify-content: center;
     background-color: #8ea3ad;
-    padding: 2%;
+    padding: 1%;
     font-family: Jost ;
     font-size: 1.5em;
     color: #fafeff;
@@ -84,9 +89,9 @@ li :hover {
 
 .picture img {
     width: 450px;
-    height: 500px;
+    height: 
+    520px;
     padding: 5%;
-    box-shadow: 15px 19px 14px 0px rgba(0,0,0,0.1);
     
 }
 
@@ -158,7 +163,7 @@ li :hover {
 }
 
 
-button {
+.contact button {
     background-color: #e7b846;
     font-size: 30px;
     margin-top: 4%;
@@ -220,4 +225,5 @@ button {
 span {
     color: #fafeff;
 }
+
 
