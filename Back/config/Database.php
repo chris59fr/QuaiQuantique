@@ -29,7 +29,7 @@ class Database {
         return self::$instance;
     }
 
-    // Connxion PDO
+    // Connexion PDO
     public function getConnexion() {
         return $this->connexion;
     }
